@@ -1,0 +1,15 @@
+#profile {
+    h1 {
+        font-weight: bold;
+    }
+    
+    section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        p {
+            margin-left: 1em;
+        }
+    }
+}

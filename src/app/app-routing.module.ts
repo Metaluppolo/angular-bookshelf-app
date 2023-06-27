@@ -7,13 +7,15 @@ import { authGuard } from './auth/auth.guard';
 import { BookshelfComponent } from './components/bookshelf/bookshelf.component';
 import { BookComponent } from './components/book/book.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [authGuard], children: [
     { path: '', redirectTo:'bookshelf', pathMatch: 'full' },
     { path: 'bookshelf', component: BookshelfComponent, children: [
-      { path: 'book', component: BookComponent }    
+      { path: 'book', component: BookComponent }
     ] },
+    { path: 'profile', component: ProfileComponent },
   ]},
   { path: 'login', component: LoginComponent },
   { path: '404', component: NotFoundComponent }, 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -21,6 +22,7 @@ import { LoginComponent } from './components/login/login.component';
 import { BookshelfComponent } from './components/bookshelf/bookshelf.component';
 import { BookComponent } from './components/book/book.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     LoginComponent,
     BookshelfComponent,
     BookComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -46,6 +50,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     MatToolbarModule,
     MatIconModule,
     MatTableModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
