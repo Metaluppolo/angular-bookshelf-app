@@ -1,1 +1,22 @@
-<p>dashboard works!</p>
+<mat-toolbar>
+    <div class="logo">
+        <mat-icon>book</mat-icon>
+        <p> MyBooks </p>
+    </div>
+    <span class="spacer"></span>
+    <button mat-icon-button aria-label="Icon-button with share icon" (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-divider/>
+
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+    <a mat-tab-link routerLink="bookshelf" [routerLinkActive]="'active'"> Bookshelf </a>
+    <a mat-tab-link routerLink="profile" [routerLinkActive]="'active'"> Profile </a>
+    <!-- <a mat-tab-link disabled> W.I.P. </a> -->
+</nav>
+
+<mat-divider/>
+
+<mat-tab-nav-panel #tabPanel><router-outlet/></mat-tab-nav-panel>

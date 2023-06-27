@@ -1,0 +1,29 @@
+@import "../../../colors.scss";
+
+mat-toolbar {
+    background-color:  rgba($bg-color-dark, 0.1);
+    box-shadow: inset 200px -5px 30px -10px rgba($bg-color-dark, 0.5);
+
+    .logo {
+        display: flex; 
+        align-items: flex-start;
+        font-size: 1.5em;
+    }
+
+    .spacer {
+        flex: 1 1 auto;
+    }
+}
+
+nav {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+
+    .active {
+        background-color:  rgba($bg-color-dark, 0.2);
+    }
+}
+
+mat-tab-nav-panel {
+    position: absolute;
+    margin: 1em;
+}
