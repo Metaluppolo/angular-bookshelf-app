@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
 import { AuthService } from 'src/app/auth/auth.service';
+import { LoginService } from 'src/app/services/login.service';
 import { User } from 'src/app/models/user.model';
 
 @Component({
@@ -9,27 +10,37 @@ import { User } from 'src/app/models/user.model';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
-
+export class LoginComponent implements OnInit {
+  users: User[] = [];
   userControl = new FormControl<User | null>(null, Validators.required);
   selectFormControl = new FormControl('', Validators.required);
 
-  // TEST
-  users: User[] = [
-    {email: 'luca.rossi@test.com', name: 'Luca', surname: 'Rossi'},
-    {email: 'anna.verdi@test.com', name: 'Anna', surname: 'Verdi'},
-    {email: 'carlo.neri@test.com', name: 'Carlo', surname: 'Neri'},
-  ];
+  constructor(private authService: AuthService, private loginService: LoginService) { }
 
-  constructor(private authService: AuthService) { }
+  ngOnInit(): void {
+    this.loginService.getUsers().subscribe((data: any) => {
+      this.users = Object.keys(data).map((key) => {
+        return data[key];
+      })
+    });
+    // INIZIO TEST 
+    if (this.users.length < 1) {
+      this.users = [
+        {email: 'luca.rossi@test.com', name: 'Luca', surname: 'Rossi'},
+        {email: 'anna.verdi@test.com', name: 'Anna', surname: 'Verdi'},
+        {email: 'carlo.neri@test.com', name: 'Carlo', surname: 'Neri'},
+      ];
+    }
+    // FINE TEST
+  }
 
-  onSelectionChange(event: MatSelectChange){
+  onSelectionChange(event: MatSelectChange) {
     const data = event.value;
     if (!data) {
       this.authService.logout();
       return;
     }
-    this.authService.setUser(data.email, data.nome, data.cognome);
+    this.authService.setUser(data);
   }
   
   // onSubmit(form: NgForm){
@@ -38,7 +49,4 @@ export class LoginComponent {
   //     this.authService.setUser(data.email, data.nome, data.cognome);
   //   })
   // }
-
-
-
 }

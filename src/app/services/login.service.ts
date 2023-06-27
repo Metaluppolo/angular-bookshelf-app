@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpConstants } from '../constants/http.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +9,9 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers(){
-    const response = this.http.get(HttpConstants.GET_USERS);
-    return response;
+  getUsers() {
+    return this.http.get(HttpConstants.GET_USERS);
   }
+
+  //isValidUser() {}
 }

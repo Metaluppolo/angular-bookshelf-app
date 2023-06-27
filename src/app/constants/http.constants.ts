@@ -1,4 +1,5 @@
-namespace HttpConstants {
-    const _server = "http://localhost";
-    export const GET_USERS = `${_server}/users`;
+const _href = "http://localhost";
+
+export const enum HttpConstants {
+    GET_USERS = `${_href}/users`,
 }

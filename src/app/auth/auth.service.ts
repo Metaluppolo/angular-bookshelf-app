@@ -1,30 +1,38 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model'
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private isLoggedIn: boolean = true;
+  private isLoggedIn: boolean = false;
   user: User | undefined | null;
   
-  constructor() { }
+  constructor(private router: Router) { }
 
-  isAuthenticated(): boolean{
+  isAuthenticated(): boolean {
     return this.isLoggedIn;
   }
 
-  getUser(){
-    if (localStorage.getItem('user')) {
-      const user = JSON.parse(localStorage.getItem('user')!);
-      this.setUser(user.email, user.name, user.surname);
-    }
+  loadLocalUser() {
+    const localUser = localStorage.getItem('user');
+    if (localUser)
+      this.setUser(JSON.parse(localUser!) as User);
   }
 
-  setUser(email: string, name: string, surname: string){
-    this.user = new User(email, name, surname);
-    localStorage.setItem('user', JSON.stringify(this.user));
+  setUser(user: User) {
+    this.user = user;
     this.isLoggedIn = true;
+    localStorage.setItem('user', JSON.stringify(this.user));
+    this.router.navigate(['/']);
+  }
+
+  logout() {
+    this.isLoggedIn = false;
+    this.user = null;
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']);
   }
 
   // login(email: string){
@@ -35,12 +43,5 @@ export class AuthService {
   //   }
   //   return response;
   // }
-
-  logout(){
-    this.isLoggedIn = false;
-    this.user = null;
-    localStorage.removeItem('user');
-    //this.router.navigate(['/login']);
-  }
 
 }
