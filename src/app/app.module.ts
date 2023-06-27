@@ -20,6 +20,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { BookshelfComponent } from './components/bookshelf/bookshelf.component';
 import { BookComponent } from './components/book/book.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BookComponent } from './components/book/book.component';
     DashboardComponent,
     LoginComponent,
     BookshelfComponent,
-    BookComponent
+    BookComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
