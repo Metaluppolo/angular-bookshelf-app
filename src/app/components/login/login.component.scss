@@ -1,3 +1,20 @@
-h4 {
+@import "../../../colors.scss";
+
+h1 {
     font-weight: bold;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+
+    section {
+        background-color: rgba($bg-color-dark, 0.2);
+        box-shadow: 1em 0.7em 1em 0em rgba($bg-color-dark, 0.9);;
+        border-radius: 1em 1em 1em 1em;
+        padding: 2em 5em;
+        text-align: center;
+    }
 }
