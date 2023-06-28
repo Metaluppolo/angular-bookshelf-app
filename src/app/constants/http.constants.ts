@@ -1,5 +1,6 @@
-const _href = "http://localhost";
+const _href = "/api/";
 
 export const enum HttpConstants {
-    GET_USERS = `${_href}/users`,
+    USERS = `${_href}users`,
+    BOOKS = `${_href}books`,
 }

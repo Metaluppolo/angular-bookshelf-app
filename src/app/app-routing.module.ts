@@ -12,9 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [authGuard], children: [
     { path: '', redirectTo:'bookshelf', pathMatch: 'full' },
-    { path: 'bookshelf', component: BookshelfComponent, children: [
-      { path: 'book', component: BookComponent }
-    ] },
+    { path: 'bookshelf', component: BookshelfComponent, children: [{ path: ':id', component: BookComponent }] },
     { path: 'profile', component: ProfileComponent },
   ]},
   { path: 'login', component: LoginComponent },

@@ -11,6 +11,8 @@ div {
     padding: 2em;
 
     section {
+        display: flex;
+        flex-direction: column;
         background-color: rgba($bg-color-dark, 0.2);
         box-shadow: 1em 0.7em 1em 0em rgba($bg-color-dark, 0.9);;
         border-radius: 1em 1em 1em 1em;

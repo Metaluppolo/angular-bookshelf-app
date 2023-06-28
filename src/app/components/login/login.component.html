@@ -7,6 +7,7 @@
         <mat-option *ngFor="let user of users" [value]="user"> {{user.email}} </mat-option>
       </mat-select>
     </mat-form-field>
+    <button mat-button (click)="onLoginClick()" [disabled]="!selectedUser"> Continue with email </button>
     <!-- <p> or </p>
     <a> Sign In </a> -->
   </section>

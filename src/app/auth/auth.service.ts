@@ -17,14 +17,12 @@ export class AuthService {
 
   loadLocalUser() {
     const localUser = localStorage.getItem('user');
-    if (localUser)
+    if (localUser) 
       this.setUser(JSON.parse(localUser!) as User);
   }
 
-  setUser(user: User) {
-    this.user = user;
-    this.isLoggedIn = true;
-    localStorage.setItem('user', JSON.stringify(this.user));
+  login(user: User) {
+    this.setUser(user);
     this.router.navigate(['/']);
   }
 
@@ -35,13 +33,10 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  // login(email: string){
-  //   const body = {email: email};
-  //   const response = this.http.post(signInURL, body);
-  //   if (response) { 
-  //     this.router.navigate(['/homepage']);
-  //   }
-  //   return response;
-  // }
-
+  private setUser(user: User) {
+    this.user = user;
+    this.isLoggedIn = true;
+    localStorage.setItem('user', JSON.stringify(this.user));
+  }
+  
 }
