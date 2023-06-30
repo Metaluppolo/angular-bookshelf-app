@@ -1,1 +1,17 @@
-<p>book works!</p>
+<mat-card class="card">
+    <mat-card-header>
+      <mat-card-subtitle>ISBN: {{book.ISBN}}</mat-card-subtitle>
+      <mat-card-title>{{book.title}}</mat-card-title>
+      <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-divider/>
+    <div>
+        <img mat-card-image src={{book.cover_url}} alt="Book Cover">
+    </div>
+    <mat-card-content>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>{{book.plot_start}}</mat-expansion-panel-header>
+            <p>{{book.plot_end}}</p>
+        </mat-expansion-panel>
+    </mat-card-content>
+  </mat-card>
