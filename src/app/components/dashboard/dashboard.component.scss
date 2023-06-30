@@ -19,11 +19,7 @@ nav {
     border: 1px solid rgba(0, 0, 0, 0.5);
 
     .active {
+        font-weight: bold;
         background-color:  rgba($bg-color-dark, 0.2);
     }
-}
-
-mat-tab-nav-panel {
-    position: absolute;
-    margin: 1em;
 }
