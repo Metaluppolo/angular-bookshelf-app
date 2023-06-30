@@ -1,1 +1,21 @@
-<p>bookshelf works!</p>
+<mat-drawer-container  autosize>
+    <mat-nav-list>
+        <mat-list-item *ngFor="let book of books" routerLink="/bookshelf/{{ book.ISBN }}" (click)="drawer.toggle()">
+            <img matListItemAvatar alt="cover" src={{book.cover_url}}>
+            <div class="info">
+                <p matListItemTitle> {{book.title}} </p>
+                <p matListItemLine> {{book.author}} </p>
+                <p class="counter">Readings: {{ book.readings_counter }}</p>
+            </div>
+        </mat-list-item>
+    </mat-nav-list>
+    <mat-drawer #drawer mode="over" position="end">
+        <router-outlet/>
+        <ng-form>
+            <mat-button-toggle-group name="opinion" aria-label="opinion">
+                <mat-button-toggle value="like" color="green"><mat-icon>thumb_up</mat-icon></mat-button-toggle>
+                <mat-button-toggle value="dislike"><mat-icon>thumb_down</mat-icon></mat-button-toggle>
+            </mat-button-toggle-group>
+        </ng-form>
+    </mat-drawer>
+</mat-drawer-container>
