@@ -15,6 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatCardModule} from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -43,6 +44,7 @@ import { DiscoverComponent } from './components/discover/discover/discover.compo
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
@@ -52,7 +54,8 @@ import { DiscoverComponent } from './components/discover/discover/discover.compo
     MatToolbarModule,
     MatIconModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,12 +5,12 @@ import { HttpConstants } from '../constants/http.constants';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers() {
-    return this.http.get(HttpConstants.USERS);
+  getBooks() {
+    return this.http.get(`${HttpConstants.BOOKS}`);
   }
 
 }

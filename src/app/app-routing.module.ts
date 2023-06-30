@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [authGuard], children: [
     { path: '', redirectTo:'bookshelf', pathMatch: 'full' },
     { path: 'discover', component: DiscoverComponent },
-    { path: 'bookshelf', component: BookshelfComponent, children: [{ path: ':id', component: BookComponent }] },
+    { path: 'bookshelf', component: BookshelfComponent, children: [{ path: ':isbn', component: BookComponent }] },
     { path: 'profile', component: ProfileComponent },
   ]},
   { path: 'login', component: LoginComponent },
