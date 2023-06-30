@@ -8,10 +8,12 @@ import { BookshelfComponent } from './components/bookshelf/bookshelf.component';
 import { BookComponent } from './components/book/book.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { DiscoverComponent } from './components/discover/discover/discover.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [authGuard], children: [
     { path: '', redirectTo:'bookshelf', pathMatch: 'full' },
+    { path: 'discover', component: DiscoverComponent },
     { path: 'bookshelf', component: BookshelfComponent, children: [{ path: ':id', component: BookComponent }] },
     { path: 'profile', component: ProfileComponent },
   ]},

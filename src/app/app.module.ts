@@ -23,6 +23,7 @@ import { BookshelfComponent } from './components/bookshelf/bookshelf.component';
 import { BookComponent } from './components/book/book.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { DiscoverComponent } from './components/discover/discover/discover.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     BookshelfComponent,
     BookComponent,
     NotFoundComponent,
-    ProfileComponent
+    ProfileComponent,
+    DiscoverComponent
   ],
   imports: [
     BrowserModule,
