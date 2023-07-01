@@ -1,2 +1,33 @@
 @import "../../../../colors.scss";
 
+.book-info{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    mat-toolbar {
+        background-color: transparent;
+        position: absolute;
+        z-index: 1;
+    
+        .spacer {
+            flex: 1 1 auto;
+        }
+    }
+}
+
+.user-info {
+    margin: 1em;
+    
+    section {
+        display: flex;
+
+        .spacer {
+            flex: 1 1 auto;
+        }
+    }
+
+    .flex-column {
+        flex-direction: column;
+    }
+}

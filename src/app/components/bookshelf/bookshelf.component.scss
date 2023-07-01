@@ -1,6 +1,7 @@
 @import "../../../colors.scss";
 
-$img-radius: 10em;
+$img-radius: 7em;
+$info-padding-top: 0.5em;
 
 mat-drawer-container {
     display: flex;
@@ -26,7 +27,7 @@ mat-nav-list {
         }
 
         .info {
-            margin-top: 1em;
+            margin-top: $info-padding-top;
             
             .counter {
                 margin-left: 0.4em;
