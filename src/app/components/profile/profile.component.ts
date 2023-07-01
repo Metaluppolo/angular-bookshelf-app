@@ -10,6 +10,6 @@ import { User } from 'src/app/models/user.model';
 export class ProfileComponent {
   user: User;
 
-  constructor(private authService: AuthService) { this.user = authService.user!; }
+  constructor(private authService: AuthService) { this.user = this.authService.user!; }
 
 }

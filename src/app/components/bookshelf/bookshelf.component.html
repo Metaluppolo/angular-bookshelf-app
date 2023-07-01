@@ -1,4 +1,4 @@
-<mat-drawer-container  autosize>
+<mat-drawer-container>
     <mat-nav-list>
         <mat-list-item *ngFor="let book of books" routerLink="/bookshelf/{{ book.ISBN }}" (click)="drawer.toggle()">
             <img matListItemAvatar alt="cover" src={{book.cover_url}}>
@@ -9,13 +9,7 @@
             </div>
         </mat-list-item>
     </mat-nav-list>
-    <mat-drawer #drawer mode="over" position="end">
+    <mat-drawer #drawer mode="over" position="end" opened="false">
         <router-outlet/>
-        <ng-form>
-            <mat-button-toggle-group name="opinion" aria-label="opinion">
-                <mat-button-toggle value="like" color="green"><mat-icon>thumb_up</mat-icon></mat-button-toggle>
-                <mat-button-toggle value="dislike"><mat-icon>thumb_down</mat-icon></mat-button-toggle>
-            </mat-button-toggle-group>
-        </ng-form>
     </mat-drawer>
 </mat-drawer-container>

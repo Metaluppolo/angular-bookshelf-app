@@ -1,0 +1,45 @@
+@import "../../../colors.scss";
+
+.card {
+    width: 30em;
+    background-color: $bg-color-light;
+
+    mat-card-header {
+        background-color: $bg-color-dark;
+    }
+
+    div {
+        display: flex;
+        justify-content: center;
+        
+        img {
+            margin: 1em;
+            width: 10em;
+        }
+    }
+
+    mat-card-content {
+        height: 48px;
+        
+        mat-expansion-panel {
+            position: relative;
+            background-color: $bg-color-light;
+            z-index: 1;
+        
+            mat-expansion-panel-header {
+                height: fit-content;
+                font-weight: normal;
+            }
+    
+            .mat-expansion-panel-content {
+                max-height: 50vh;
+                overflow: auto;
+            }
+    
+            p {
+                height: auto;
+            }
+        }
+    }
+
+}

@@ -23,10 +23,11 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { BookshelfComponent } from './components/bookshelf/bookshelf.component';
-import { BookComponent } from './components/book/book.component';
+import { BookComponent } from './components/bookshelf/book/book.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DiscoverComponent } from './components/discover/discover.component';
+import { BookcardComponent } from './components/bookcard/bookcard.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DiscoverComponent } from './components/discover/discover.component';
     BookComponent,
     NotFoundComponent,
     ProfileComponent,
-    DiscoverComponent
+    DiscoverComponent,
+    BookcardComponent
   ],
   imports: [
     BrowserModule,

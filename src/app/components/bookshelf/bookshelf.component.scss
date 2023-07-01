@@ -6,6 +6,7 @@ mat-drawer-container {
     display: flex;
     justify-content: center;
     padding-block: 2em;
+    height: 85%;
     padding-inline: 5em;
     background-color: transparent;
 }
@@ -13,16 +14,20 @@ mat-drawer-container {
 mat-nav-list {
     display: flex;
     flex-direction: column;
+
     mat-list-item {
         height: fit-content;
         padding-bottom: 1.5em;
+
         img {
             border: 5px solid $bg-color-dark;
             height: $img-radius;
             width: $img-radius;
         }
+
         .info {
             margin-top: 1em;
+            
             .counter {
                 margin-left: 0.4em;
                 font-size: small;

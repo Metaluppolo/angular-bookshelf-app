@@ -18,7 +18,6 @@ export class BookshelfComponent implements OnInit{
       this.books = Object.keys(data).map((key) => { 
         return data[key];
       });
-      //console.log(this.books)
     });
   }
 
