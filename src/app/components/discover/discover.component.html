@@ -1,3 +1,11 @@
-<div *ngFor="let book of books" >
-    <app-bookcard [book]="book"/>
-</div>
+<section>
+    <div #card *ngFor="let book of books" >
+        <app-bookcard #info [book]="book"/>
+        <mat-toolbar>
+            <span class="spacer"></span>
+            <button mat-icon-button aria-label="Icon-button with add icon" (click)="onClickAdd(card, info.book)">
+              <mat-icon>add</mat-icon>
+            </button>
+        </mat-toolbar>
+    </div>
+</section>

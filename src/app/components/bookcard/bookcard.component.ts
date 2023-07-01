@@ -15,7 +15,6 @@ export class BookcardComponent implements OnChanges{
 
   ngOnChanges(): void {
     this.bookcardService.splitPlotString(this.book);
-    console.log(this.book)
   }
 
 }

@@ -6,20 +6,22 @@
 
     mat-card-header {
         background-color: $bg-color-dark;
+        padding: 1em;
     }
 
     div {
         display: flex;
         justify-content: center;
-        
         img {
             margin: 1em;
+            height: 15em;
             width: 10em;
         }
     }
 
     mat-card-content {
         height: 48px;
+        margin-bottom: 1em;
         
         mat-expansion-panel {
             position: relative;

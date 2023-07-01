@@ -1,13 +1,30 @@
 @import "../../../colors.scss";
 
+$flex-gap: 3em;
 
-div {
+section {
     display: flex;
     flex-direction: row;
-    margin: 1em;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: $flex-gap;
+    align-items: flex-start;
+    margin: $flex-gap;
 
     app-bookcard {
         width: fit-content;
-        margin: 1em;
     }
+
+    mat-toolbar {
+        background-color: rgba($bg-color-dark, 0.5);
+        border-radius: 0 0 10px 10px;
+
+        .spacer {
+            flex: 1 1 auto;
+        }
+    }
+}
+
+.hidden {
+    display: none;
 }

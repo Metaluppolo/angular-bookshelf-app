@@ -12,11 +12,19 @@ export class BookshelfService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getBooks() {
-    return this.http.get(`${HttpConstants.BOOKSHELF}/${this.authService.user?.email}`);
+    return this.http.get(`${HttpConstants.BOOKSHELF}/${this.authService.user!.email}`);
   }
 
   getBook(isbn: number) {
-    return this.http.get(`${HttpConstants.BOOKSHELF}/${this.authService.user?.email}?book=${isbn}`);
+    return this.http.get(`${HttpConstants.BOOKSHELF}/${this.authService.user!.email}?book=${isbn}`);
+  }
+
+  addBook(isbn: number) {
+    const body = { 
+      user: this.authService.user!.email, 
+      isbn: isbn 
+    }
+    return this.http.post(`${HttpConstants.BOOKSHELF}`, body);
   }
 
 }
