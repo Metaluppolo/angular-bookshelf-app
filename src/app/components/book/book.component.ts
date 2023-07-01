@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BookshelfService } from 'src/app/services/bookshelf.service';
+import { BookModel } from 'src/app/models/book.model';
+
 
 @Component({
   selector: 'app-book',
@@ -8,18 +10,7 @@ import { BookshelfService } from 'src/app/services/bookshelf.service';
   styleUrls: ['./book.component.scss']
 })
 export class BookComponent implements OnInit {
-  book = {
-    ISBN: 0,
-    title: "",
-    author: "",
-    plot: "",
-    plot_start: "",
-    plot_end: "",
-    cover_url: "",
-    readings_counter: 0,
-    isReccommended: "",
-    review: "",
-  };
+  book: BookModel = new BookModel();
 
   constructor(private route: ActivatedRoute, private bookshelfService: BookshelfService) { }
 

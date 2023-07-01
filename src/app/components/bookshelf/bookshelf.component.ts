@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { BookshelfService } from 'src/app/services/bookshelf.service';
+import { BookModel } from 'src/app/models/book.model';
 
 @Component({
   selector: 'app-bookshelf',
@@ -8,9 +8,9 @@ import { BookshelfService } from 'src/app/services/bookshelf.service';
   styleUrls: ['./bookshelf.component.scss']
 })
 export class BookshelfComponent implements OnInit{
-  books: any[] = [ ];
+  books: BookModel[] = [ ];
 
-  constructor(private bookshelfService: BookshelfService, private sanitizer: DomSanitizer) { }
+  constructor(private bookshelfService: BookshelfService) { }
 
   ngOnInit(): void {
     this.bookshelfService.getBooks().subscribe((res: any) => {
