@@ -8,7 +8,7 @@
     <app-bookcard [book]="book"/>
 </div>
 
-<form id="user-info">
+<form id="user-info" [formGroup]="bookform" (ngSubmit)="onSubmit()">
     <section id="progress-section">
         <h2>Your Progress </h2>
         <div class="flex-row">
@@ -16,14 +16,14 @@
             <div id="page-slider" class="flex-column">
                 <mat-label>{{pageSlider.value}}/{{book.pages}}</mat-label>
                 <mat-slider max={{book.pages}}>
-                    <input #pageSlider matSliderThumb value={{book.bookmark_page}}>
+                    <input #pageSlider matSliderThumb value={{book.bookmark_page}} formControlName="bookmark_page">
                 </mat-slider>
             </div>
         </div>
         <div class="flex-row">
             <mat-label>Full readings</mat-label>
             <mat-form-field id="readingsInput">
-                <input class="right-align" matInput type="number" min="0" oninput="validity.valid||(value='');" placeholder="0" value={{book.readings_counter}}>
+                <input class="right-align" matInput type="number" min="0" oninput="validity.valid||(value='');" placeholder="0" value={{book.readings_counter}} formControlName="readings_counter">
             </mat-form-field>
         </div>
     </section>
@@ -33,15 +33,15 @@
     <section id="review-section">
         <div class="flex-row">
             <h2>Review</h2>
-            <mat-button-toggle-group name="opinion" aria-label="opinion" value={{selectedOpinion}} #opinionGroup="matButtonToggleGroup">
-                <mat-button-toggle value="like" (change)="onChangeOpinion($event, opinionGroup)"><mat-icon>thumb_up</mat-icon></mat-button-toggle>
-                <mat-button-toggle value="dislike" (change)="onChangeOpinion($event, opinionGroup)"><mat-icon>thumb_down</mat-icon></mat-button-toggle>
+            <mat-button-toggle-group [(value)]="book.opinion" formControlName="opinion">
+                <mat-button-toggle value="like"><mat-icon>thumb_up</mat-icon></mat-button-toggle>
+                <mat-button-toggle value="dislike"><mat-icon>thumb_down</mat-icon></mat-button-toggle>
             </mat-button-toggle-group>
         </div>
         <div class="flex-column">
             <mat-form-field>
-                <mat-label>Leave a review</mat-label>
-                <textarea matInput placeholder="Ex. It makes me feel..." maxlength="250">{{book.review}}</textarea>
+                <mat-label>Leave a comment</mat-label>
+                <textarea matInput maxlength="250" value={{book.review}} formControlName="review"></textarea>
             </mat-form-field>
         </div>
     </section>
@@ -50,6 +50,6 @@
 
     <mat-toolbar>
         <span class="spacer"></span>
-        <button mat-button>SAVE</button>
+        <button mat-button type="submit" [disabled]="!bookform.dirty">SAVE</button>
     </mat-toolbar>
 </form>

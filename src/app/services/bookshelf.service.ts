@@ -38,6 +38,10 @@ export class BookshelfService {
     return this.http.post(`${HttpConstants.BOOKSHELF}`, body);
   }
 
+  updateBook(isbn: number, values: any) {
+    return this.http.put(`${HttpConstants.BOOKSHELF}/${this.authService.user!.email}/${isbn}`, values);
+  }
+
   removeBook(isbn: number) {
     this._deletedIsbn = isbn;
     return this.http.delete(`${HttpConstants.BOOKSHELF}/${this.authService.user!.email}/${isbn}`);

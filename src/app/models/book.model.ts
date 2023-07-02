@@ -10,7 +10,7 @@ export class BookModel {
         public pages: number = 0,
         public bookmark_page: number = 0,
         public readings_counter: number = 0,
-        public isRecommended: string = "",
+        public opinion: string = "",
         public review: string = ""
     ){}
 };
