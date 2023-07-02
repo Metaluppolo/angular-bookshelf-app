@@ -2,14 +2,25 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpConstants } from '../constants/http.constants';
 import { AuthService } from '../auth/auth.service';
+import { MatDrawer } from '@angular/material/sidenav';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookshelfService {
+  private _drawer!: MatDrawer;
+  private _deletedIsbn: number | undefined;
 
   constructor(private http: HttpClient, private authService: AuthService) { }
+
+  setDrawer(drawer: MatDrawer) {
+    this._drawer = drawer;
+  }
+
+  closeDrawer() {
+    this._drawer.close();
+  }
 
   getBooks() {
     return this.http.get(`${HttpConstants.BOOKSHELF}/${this.authService.user!.email}`);
@@ -25,6 +36,17 @@ export class BookshelfService {
       isbn: isbn 
     }
     return this.http.post(`${HttpConstants.BOOKSHELF}`, body);
+  }
+
+  removeBook(isbn: number) {
+    this._deletedIsbn = isbn;
+    return this.http.delete(`${HttpConstants.BOOKSHELF}/${this.authService.user!.email}/${isbn}`);
+  }
+
+  getDeletedIsbn() : number | undefined {
+    const isbn = this._deletedIsbn;
+    this._deletedIsbn = undefined;
+    return isbn;
   }
 
 }

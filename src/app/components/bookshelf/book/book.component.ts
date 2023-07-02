@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { BookshelfService } from 'src/app/services/bookshelf.service';
 import { BookModel } from 'src/app/models/book.model';
 import { MatButtonToggleGroup } from '@angular/material/button-toggle';
@@ -14,7 +14,7 @@ export class BookComponent implements OnInit {
   book: BookModel = new BookModel();
   selectedOpinion = "";
 
-  constructor(private route: ActivatedRoute, private bookshelfService: BookshelfService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private bookshelfService: BookshelfService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -31,6 +31,12 @@ export class BookComponent implements OnInit {
     } else {
       this.selectedOpinion = event.value;
     }
+  }
+
+  onClickDelete() {
+    this.bookshelfService.removeBook(this.book.ISBN).subscribe();
+    this.bookshelfService.closeDrawer();
+    this.router.navigate(['/']);
   }
 
   private getBookInfo(isbn: number) {
