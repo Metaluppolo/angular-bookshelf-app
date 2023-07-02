@@ -7,8 +7,10 @@ export class BookModel {
         public plot_start: string = "",
         public plot_end: string = "",
         public cover_url: string = "",
+        public pages: number = 0,
+        public bookmark_page: number = 0,
         public readings_counter: number = 0,
-        public isReccommended: string = "",
+        public isRecommended: string = "",
         public review: string = ""
     ){}
 };

@@ -5,8 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -51,6 +52,7 @@ import { BookcardComponent } from './components/bookcard/bookcard.component';
     
     MatInputModule,
     MatSelectModule,
+    MatSliderModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatFormFieldModule,

@@ -1,6 +1,26 @@
 @import "../../../../colors.scss";
 
-.book-info{
+$slider-width: 15em;
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.mat-button-toggle-group {
+    transform: scale(0.6) translate(2.3em, 0);
+
+    .mat-button-toggle-checked {
+        background-color: $bg-color-dark;
+        box-shadow: inset 0px 10px 27px -8px rgba(black, 0.2);
+        color: white;
+    }
+}
+
+#book-info{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -9,25 +29,50 @@
         background-color: transparent;
         position: absolute;
         z-index: 1;
-    
-        .spacer {
-            flex: 1 1 auto;
-        }
     }
 }
 
-.user-info {
-    margin: 1em;
+#user-info {
+    margin-inline: 1em;
     
-    section {
-        display: flex;
+    mat-toolbar {
+        background-color: transparent;
+    }
 
-        .spacer {
-            flex: 1 1 auto;
+    section {
+        margin-inline: 1.5em;
+        margin-block: 1em;
+
+        .flex-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .flex-column {
+            display: flex;
+            flex-direction: column;
         }
     }
 
-    .flex-column {
-        flex-direction: column;
+    #progress-section {
+        
+        #page-slider {
+            position: relative;
+
+            mat-label {
+                position: absolute;
+                transform: translate(0, -10px);
+            }
+
+            mat-slider {
+                width: $slider-width;
+            }
+        }
+
+        #readingsInput {
+            margin-right: 0.5em;
+            transform: translate(0, 0.75em);
+        }
     }
 }
