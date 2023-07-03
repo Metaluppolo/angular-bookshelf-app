@@ -25,6 +25,7 @@ section {
     gap: $flex-gap;
     align-items: flex-start;
     padding: $flex-gap;
+    margin-inline: 5em;
 
     app-bookcard {
         width: fit-content;

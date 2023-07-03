@@ -25,12 +25,12 @@ export class AutocompleteInputComponent implements OnInit {
     );
   }
 
-  onClickClear() {
+  onClear() {
     this.inputValue.nativeElement.value = "";
     this._sendValue(this.inputValue.nativeElement.value);
   }
 
-  onClickSearch() {
+  onSearch() {
     this._sendValue(this.inputValue.nativeElement.value);
   }
 
