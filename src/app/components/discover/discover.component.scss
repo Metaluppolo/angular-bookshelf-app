@@ -9,7 +9,7 @@ section {
     justify-content: space-evenly;
     gap: $flex-gap;
     align-items: flex-start;
-    margin: $flex-gap;
+    padding: $flex-gap;
 
     app-bookcard {
         width: fit-content;
