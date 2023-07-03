@@ -10,11 +10,11 @@ export class DiscoverService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  getBooksAll() {
-    return this.http.get(`${HttpConstants.BOOKS}`);
-  }
+  getMissingBooks(booksPerPage: number | null = null, page: number | null = null) {
+    let url = `${HttpConstants.BOOKS}?missingTo=${this.authService.user?.email}`;
+    if (page != null) { url += `&page=${page}`; }
+    if (booksPerPage != null) { url += `&booksPerPage=${booksPerPage}`; }
 
-  getBooksFiltered() {
-    return this.http.get(`${HttpConstants.BOOKS}?missingTo=${this.authService.user?.email}`);
+    return this.http.get(url);
   }
 }

@@ -25,6 +25,12 @@ section {
     }
 }
 
+mat-toolbar {
+    display: flex;
+    justify-content: center;
+    background-color: rgba($bg-color-dark, 0.1);
+}
+
 .hidden {
     display: none;
 }
