@@ -16,6 +16,10 @@ mat-toolbar {
 }
 
 nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: $bg-color-light;
     border: 1px solid rgba(0, 0, 0, 0.5);
 
     .active {

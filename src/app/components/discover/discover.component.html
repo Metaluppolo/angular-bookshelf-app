@@ -1,15 +1,20 @@
+<div id="tool-bar">
+    <div id="search-bar">
+        <app-autocomplete-input [options]="autocompleteOptions" (sendValueEvent)="onReceiveSearchValue($event)"></app-autocomplete-input>
+    </div>
+</div>
 <section>
     <div #card *ngFor="let book of books" >
         <app-bookcard #info [book]="book"/>
         <mat-toolbar>
             <span class="spacer"></span>
-            <button mat-icon-button aria-label="Icon-button with add icon" (click)="onClickAdd(card, info.book)">
+            <button mat-icon-button aria-label="Icon-button with add icon" (click)="onClickAdd(info.book)">
               <mat-icon>add</mat-icon>
             </button>
         </mat-toolbar>
     </div>
 </section>
-<mat-toolbar>
-    <button mat-button (click)="onClickShowMore()">Show More</button>
-</mat-toolbar>
 
+<mat-toolbar id="footer">
+    <button mat-button [disabled]="isShowMoreDisabled" (click)="onClickShowMore()">Show More</button>
+</mat-toolbar>

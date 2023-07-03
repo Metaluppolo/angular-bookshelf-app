@@ -2,6 +2,21 @@
 
 $flex-gap: 3em;
 
+#tool-bar {
+    background-color: $bg-color-light;
+    
+    #search-bar {
+        display: flex;
+        justify-content: center;
+        padding-top: 1.5em;
+        background-color: rgba($bg-color-dark, 0.2);
+
+        app-autocomplete-input {
+            width: 40%;
+        }
+    }
+}
+
 section {
     display: flex;
     flex-direction: row;
@@ -25,12 +40,8 @@ section {
     }
 }
 
-mat-toolbar {
+#footer {
     display: flex;
     justify-content: center;
     background-color: rgba($bg-color-dark, 0.1);
-}
-
-.hidden {
-    display: none;
 }

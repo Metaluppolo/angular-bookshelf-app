@@ -10,6 +10,11 @@ export class DiscoverService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
+  getMissingBook(title: string) {
+    let url = `${HttpConstants.BOOKS}?missingTo=${this.authService.user?.email}&title=${title}`;
+    return this.http.get(url);
+  }
+
   getMissingBooks(booksPerPage: number | null = null, page: number | null = null) {
     let url = `${HttpConstants.BOOKS}?missingTo=${this.authService.user?.email}`;
     if (page != null) { url += `&page=${page}`; }
