@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,6 +30,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DiscoverComponent } from './components/discover/discover.component';
 import { BookcardComponent } from './components/bookcard/bookcard.component';
+import { AutocompleteInputComponent } from './components/autocomplete-input/autocomplete-input.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { BookcardComponent } from './components/bookcard/bookcard.component';
     NotFoundComponent,
     ProfileComponent,
     DiscoverComponent,
-    BookcardComponent
+    BookcardComponent,
+    AutocompleteInputComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { BookcardComponent } from './components/bookcard/bookcard.component';
     ReactiveFormsModule,
     
     MatInputModule,
+    MatAutocompleteModule,
     MatSelectModule,
     MatSliderModule,
     MatButtonModule,

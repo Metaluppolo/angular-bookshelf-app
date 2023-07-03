@@ -1,0 +1,17 @@
+<form class="form">
+    <mat-form-field class="full-width">
+      <mat-label>Search</mat-label>
+      <input #input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <button *ngIf="input.value" matSuffix mat-icon-button aria-label="Clear" (click)="onClickClear()">
+        <mat-icon>close</mat-icon>
+      </button>
+      <button matSuffix mat-icon-button aria-label="Search" (click)="onClickSearch()">
+        <mat-icon>search</mat-icon>
+      </button>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" hideSingleSelectionIndicator="true">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="onClickSearch()">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+</form>
