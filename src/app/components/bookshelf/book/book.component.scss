@@ -75,4 +75,12 @@ $slider-width: 15em;
             transform: translate(0, 0.75em);
         }
     }
+
+    #review-section {
+        
+        #comment {
+            height: 9.5em;
+            resize: none;
+        }
+    }
 }
