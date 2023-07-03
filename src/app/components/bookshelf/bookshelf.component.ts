@@ -24,14 +24,25 @@ export class BookshelfComponent implements OnInit, AfterContentChecked, AfterVie
   }
 
   ngAfterContentChecked(): void {
-    this.removeBookFromView();
+    this._checkUpdatedBook();
+    this._checkRemovedBook();
   }
 
   ngAfterViewInit(): void {
     this.bookshelfService.setDrawer(this.drawerRef);
   }
 
-  private removeBookFromView() {
+  private _checkUpdatedBook() {
+    const updatedIsbn = this.bookshelfService.getUpdatedIsbn();
+    if (updatedIsbn) {
+      this.bookshelfService.getBook(updatedIsbn).subscribe((res: any) => {
+        const updatedIndex = this.books.findIndex(book => book.ISBN == updatedIsbn);
+        this.books[updatedIndex] = res.data[0];
+      });
+    }
+  }
+
+  private _checkRemovedBook() {
     const deletedIsbn = this.bookshelfService.getDeletedIsbn();
     if (deletedIsbn) {
       this.books = this.books.filter(book => book.ISBN != deletedIsbn);

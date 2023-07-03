@@ -10,6 +10,7 @@ import { MatDrawer } from '@angular/material/sidenav';
 })
 export class BookshelfService {
   private _drawer!: MatDrawer;
+  private _updatedIsbn: number | undefined;
   private _deletedIsbn: number | undefined;
 
   constructor(private http: HttpClient, private authService: AuthService) { }
@@ -39,12 +40,19 @@ export class BookshelfService {
   }
 
   updateBook(isbn: number, values: any) {
+    this._updatedIsbn = isbn;
     return this.http.put(`${HttpConstants.BOOKSHELF}/${this.authService.user!.email}/${isbn}`, values);
   }
 
   removeBook(isbn: number) {
     this._deletedIsbn = isbn;
     return this.http.delete(`${HttpConstants.BOOKSHELF}/${this.authService.user!.email}/${isbn}`);
+  }
+
+  getUpdatedIsbn() : number | undefined {
+    const isbn = this._updatedIsbn;
+    this._updatedIsbn = undefined;
+    return isbn;
   }
 
   getDeletedIsbn() : number | undefined {
