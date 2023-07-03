@@ -50,6 +50,6 @@
 
     <mat-toolbar>
         <span class="spacer"></span>
-        <button mat-button type="submit" [disabled]="!bookform.dirty">SAVE</button>
+        <button mat-button type="submit" [disabled]="bookform.pristine">SAVE</button>
     </mat-toolbar>
 </form>

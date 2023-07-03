@@ -33,6 +33,7 @@ export class BookComponent implements OnInit {
 
   onSubmit() {
     this.bookshelfService.updateBook(this.book.ISBN, this.bookform.value).subscribe();
+    this.bookform.markAsPristine();
   }
 
   private _setBookform() {
